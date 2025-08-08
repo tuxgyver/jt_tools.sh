@@ -67,10 +67,10 @@ optimisations(){
 }
 
 clear
-echo "ℹ️ Mise à jour en cours..."
-check_update_and_upgrade
 echo "ℹ️ Bienvenue..."
 verif_install_figlet
+echo "ℹ️ Mise à jour en cours..."
+check_update_and_upgrade
 echo "ℹ️ Installation des outils..."
 verif_install_outils
 echo "ℹ️ Optimisations du système..."
