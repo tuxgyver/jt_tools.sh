@@ -29,7 +29,7 @@ verif_install_figlet() {
 
 verif_install_outils() {
     local pkgs="dnsutils cifs-utils nmon python3 htop sl inxi fastfetch radeontop build-essential gcc git curl net-tools figlet \
-    glances bmon btop cmatrix toilet lolcat fortune cowsay duf findutils intel-gpu-tools intel-microcode ncdu"
+    glances bmon btop cmatrix toilet lolcat fortune cowsay duf findutils intel-gpu-tools intel-microcode ncdu needrestart unattended-upgrades"
     for pkg in $pkgs; do
         if ! dpkg -l | grep -qw $pkg && ! command -v $pkg >/dev/null 2>&1; then
             echo "$pkg non installé, installation..."
