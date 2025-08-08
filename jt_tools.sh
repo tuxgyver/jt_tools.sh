@@ -36,11 +36,11 @@ show_header() {
     clear
     echo -e "${CYAN}=================================================================${NC}"
     if command -v figlet >/dev/null 2>&1; then
-        echo -e "${PURPLE}"
+        echo -e "${BLUE}"
         figlet -f small "JT-Tools"
         echo -e "${NC}"
     else
-        echo -e "${BOLD}${PURPLE}                    JT-TOOLS${NC}"
+        echo -e "${BOLD}${BLUE}                    JT-TOOLS${NC}"
     fi
     echo -e "${YELLOW}                    Version $VERSION${NC}"
     echo -e "${GREEN}                 Auteur: $AUTHOR${NC}"
