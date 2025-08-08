@@ -1,5 +1,8 @@
  !#/bin/sh
 
+#Couleur
+BLUE='\033[0;34m'
+
 # Fonction pour vérifier le bon déroulement de la commande de mise à jour
 check_update_and_upgrade() {
     # Exécuter la commande et capturer le statut de sortie
@@ -15,6 +18,13 @@ check_update_and_upgrade() {
 # Fliglet 
 verif_install_figlet() {
     if ! command -v figlet >/dev/null 2>&1; then
+        echo -e "${BLUE}${BOLD}"
+        echo "   ____       _       ____  "
+        echo "  / ___|     / \\     / ___| "
+        echo " | |  _     / _ \\   | |  _  "
+        echo " | |_| |   / ___ \\  | |_| | "
+        echo "  \\____|  /_/   \\_\\  \\____| "
+        echo -e "${NC}"
         echo "⚙️ figlet non trouvé. Installation..."
         sudo apt install -y figlet
         if [ "$?" -eq 0 ]; then
@@ -23,7 +33,10 @@ verif_install_figlet() {
             echo "❌ L'installation a rencontré une erreur."
         fi
     else
-        figlet JT-Tools
+         # Affichage du titre avec figlet si disponible
+         echo -e "${BLUE}${BOLD}"
+         figlet -f small "GAG Pro 4.0"
+         echo -e "${NC}"
     fi
 }
 
