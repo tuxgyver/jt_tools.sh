@@ -19,11 +19,12 @@ check_update_and_upgrade() {
 verif_install_figlet() {
     if ! command -v figlet >/dev/null 2>&1; then
         echo -e "${BLUE}${BOLD}"
-        echo "   ____       _       ____  "
-        echo "  / ___|     / \\     / ___| "
-        echo " | |  _     / _ \\   | |  _  "
-        echo " | |_| |   / ___ \\  | |_| | "
-        echo "  \\____|  /_/   \\_\\  \\____| "
+        echo "     _ _____   _____           _     "
+        echo "    | |_   _| |_   _|__   ___ | |___ "
+        echo " _  | | | |_____| |/ _ \ / _ \| / __|"
+        echo "| |_| | | |_____| | (_) | (_) | \__ \\"
+        echo " \___/  |_|     |_|\___/ \___/|_|___/"
+        echo "                                     "
         echo -e "${NC}"
         echo "⚙️ figlet non trouvé. Installation..."
         sudo apt install -y figlet
