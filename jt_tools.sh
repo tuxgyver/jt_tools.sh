@@ -46,10 +46,24 @@ verif_install_outils() {
 }
 
 optimisations(){
-# nombre maximal de fichiers qui peuvent être ouverts simultanément sur le système. 
-sudo sysctl -w fs.file-max=1000000
-# paramètre de configuration du protocole TCP qui contrôle le nombre maximal de "buckètes" (groupes) de connexions TCP en temps réel.
-sudo sysctl -w net.ipv4.tcp_max_tw_buckets=40000
+    # Ajuste le nombre maximal de fichiers qui peuvent être ouverts simultanément sur le système. 
+    sudo sysctl -w fs.file-max=1000000
+    # Ajuste le paramètre de configuration du protocole TCP qui contrôle le nombre maximal de "buckètes" (groupes) de connexions TCP en temps réel.
+    sudo sysctl -w net.ipv4.tcp_max_tw_buckets=40000
+    # Ajuste le nombre maximal de connexions simultanées sur un seul socket (soy)
+    sudo sysctl -w net.core.somaxconn=1024
+    # Ajuste le nombre maximal d'orphans (processus qui n'ont pas de parent) qui peuvent exister en même temps
+    sudo sysctl -w net.ipv4.tcp_max_orphans=5000
+    # Ajuste le nombre maximal de mappings (mappings de mémoire) qui peuvent être créés
+    sudo sysctl -w vm.max_map_count=65536
+    # Ajuste le nombre maximal de fichiers qui peuvent être ouverts simultanément sur le système
+    sudo sysctl -w fs.nr_open=4096
+    # Ajuste la durée pendant laquelle TCP maintient une connexion active en attente d'un paquet de réinitialisation (keep-alive)
+    sudo sysctl -w net.ipv4.tcp_keepalive_time=60
+    # Activez le mode de création des cookies syn pour les connexions TCP
+    sudo sysctl -w net.ipv4.tcp_syncookies=1
+    # Ajuste le nombre maximal d'éléments qui peuvent être stockés dans la file d'attente des paquets réseau
+    sudo sysctl -w net.core.netdev_max_backlog=1000
 }
 
 clear
@@ -59,3 +73,6 @@ echo "ℹ️ Bienvenue..."
 verif_install_figlet
 echo "ℹ️ Installation des outils..."
 verif_install_outils
+echo "ℹ️ Optimisations du système..."
+optimisations
+echo "✅ Installations et optimisations terminées."
